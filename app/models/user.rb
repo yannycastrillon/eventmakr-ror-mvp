@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  enum role: [:user, :vip, :admin]
+  enum role: [:user, :vendor, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
   def set_default_role
@@ -10,4 +10,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+
+  # attr_accessor :email, :password, :password_confirmation, :role
+
 end
