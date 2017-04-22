@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170421230604) do
+ActiveRecord::Schema.define(version: 20170422015342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,15 +20,6 @@ ActiveRecord::Schema.define(version: 20170421230604) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "parent_id"
-  end
-
-  create_table "user_categories", force: :cascade do |t|
-    t.integer  "users_id"
-    t.integer  "categories_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.index ["categories_id"], name: "index_user_categories_on_categories_id", using: :btree
-    t.index ["users_id"], name: "index_user_categories_on_users_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -48,6 +39,15 @@ ActiveRecord::Schema.define(version: 20170421230604) do
     t.integer  "role"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  end
+
+  create_table "vendor_categories", force: :cascade do |t|
+    t.integer  "vendor_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_vendor_categories_on_category_id", using: :btree
+    t.index ["vendor_id"], name: "index_vendor_categories_on_vendor_id", using: :btree
   end
 
 end

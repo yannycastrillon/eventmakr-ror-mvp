@@ -1,6 +1,6 @@
 class Category < ApplicationRecord
-  has_many :user_categories
-  has_many :users, :through => :user_categories
+  has_many :vendor_categories
+  has_many :vendors, :through => :vendor_categories
   acts_as_tree
 
   # Recursively finds each ancestors name and concatenates with the parent name.
