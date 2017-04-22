@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   protected
 
-  # Permits the corresponding parameters
+  # Permits parameters to go through
   def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up) do |user_params|
       user_params.permit(:role, :name, :email, :password, :password_confirmation)
