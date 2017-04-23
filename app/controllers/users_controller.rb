@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :find_user, only:[:show,:update]
-  before_action :admin_only, :except => :show
+  # before_action :admin_only, :except => :show
 
   def index
-    @users = User.all
+    @users = User.only_users
   end
 
   def show

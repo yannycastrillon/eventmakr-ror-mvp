@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <h3>Vendors</h3>
+    <div class="column">
+      <table class="table">
+        <tbody>
+          <% @vendors.each do |vendor| %>
+            <tr>
+              <%= render vendor %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
